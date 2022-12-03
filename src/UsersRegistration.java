@@ -23,14 +23,14 @@ PreparedStatement pst=null;
     private void Reset()
 {
     txtName.setText("");
-    txtUserName.setText("");
+    txtEmail.setText("");
     txtPassword.setText("");
-    txtEmailID.setText("");
+    txtBitsId.setText("");
     txtContactNo.setText("");
     Save.setEnabled(true);
     Delete.setEnabled(false);
     Update.setEnabled(false);
-    txtUserName.requestDefaultFocus();
+    txtEmail.requestDefaultFocus();
    
 }
 
@@ -48,16 +48,15 @@ PreparedStatement pst=null;
         Save = new javax.swing.JButton();
         Delete = new javax.swing.JButton();
         Update = new javax.swing.JButton();
-        GetData = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtUserName = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
-        txtEmailID = new javax.swing.JTextField();
+        txtBitsId = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtContactNo = new javax.swing.JTextField();
 
@@ -97,13 +96,6 @@ PreparedStatement pst=null;
             }
         });
 
-        GetData.setText("Get Data");
-        GetData.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GetDataActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -111,11 +103,10 @@ PreparedStatement pst=null;
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(New, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(New, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
                     .addComponent(Save, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(GetData, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE))
+                    .addComponent(Update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -129,9 +120,7 @@ PreparedStatement pst=null;
                 .addComponent(Delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(GetData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(17, 17, 17))
+                .addGap(46, 46, 46))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("User Details"));
@@ -168,7 +157,7 @@ PreparedStatement pst=null;
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmailID)
+                            .addComponent(txtBitsId)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
@@ -177,7 +166,7 @@ PreparedStatement pst=null;
                             .addComponent(txtContactNo)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -189,7 +178,7 @@ PreparedStatement pst=null;
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -197,7 +186,7 @@ PreparedStatement pst=null;
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBitsId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(9, 9, 9)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -233,10 +222,6 @@ PreparedStatement pst=null;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void NewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewActionPerformed
-    Reset();
-    }//GEN-LAST:event_NewActionPerformed
-
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
          try{
       con=Connect.ConnectDB();
@@ -244,7 +229,7 @@ PreparedStatement pst=null;
            JOptionPane.showMessageDialog( this, "Please enter name","Error", JOptionPane.ERROR_MESSAGE);
            return;
             }
-        if (txtUserName.getText().equals("")) {
+        if (txtEmail.getText().equals("")) {
            JOptionPane.showMessageDialog( this, "Please enter user name","Error", JOptionPane.ERROR_MESSAGE);
            return;
             }
@@ -260,20 +245,20 @@ PreparedStatement pst=null;
           
        Statement stmt;
        stmt= con.createStatement();
-       String sql1="Select username from Registration where Username= '" + txtUserName.getText() + "'";
+       String sql1="Select username from Registration where Username= '" + txtEmail.getText() + "'";
       rs=stmt.executeQuery(sql1);
       if(rs.next()){
         JOptionPane.showMessageDialog( this, "User name already exists","Error", JOptionPane.ERROR_MESSAGE);
-        txtUserName.setText("");
-        txtUserName.requestDefaultFocus();
+        txtEmail.setText("");
+        txtEmail.requestDefaultFocus();
        return;
    }
        String Password1= String.valueOf(txtPassword.getPassword());
-       String sql= "insert into Registration(username,password,nameofuser,Email,ContactNo)values('"+ txtUserName.getText() + "','" + Password1 + "','" + txtName.getText() + "','" + txtEmailID.getText() + "','" + txtContactNo.getText() + "')";
+       String sql= "insert into Registration(userName,bitsMail,password,bitsId,contactNo)values('"+ txtName.getText() + "','" + txtEmail.getText() + "','" + Password1 + "','" + txtBitsId.getText() + "','" + txtContactNo.getText() + "')";
       
       pst=con.prepareStatement(sql);
       pst.execute();
-       String sql2= "insert into Users(username,user_password)values('" + txtUserName.getText() + "','" + Password1 + "')";
+       String sql2= "insert into Users(username,user_password)values('" + txtEmail.getText() + "','" + Password1 + "')";
       
       pst=con.prepareStatement(sql2);
       pst.execute();
@@ -284,54 +269,6 @@ PreparedStatement pst=null;
                 }
     }//GEN-LAST:event_SaveActionPerformed
 
-    private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
-          try
-          {
-        int P = JOptionPane.showConfirmDialog(null," Are you sure want to delete ?","Confirmation",JOptionPane.YES_NO_OPTION);
-     if (P==0)
-     {
-        con=Connect.ConnectDB();
-       
-        String sql= "delete from Registration where Username = '" + txtUserName.getText() + "'";
-        pst=con.prepareStatement(sql);
-        pst.execute();  
-         String sql1= "delete from Users where Username = '" + txtUserName.getText() + "'";
-        pst=con.prepareStatement(sql1);
-        pst.execute(); 
-        JOptionPane.showMessageDialog(this,"Successfully deleted","Record",JOptionPane.INFORMATION_MESSAGE); 
-        Reset();
-     }
-      }catch(HeadlessException | SQLException ex){
-           JOptionPane.showMessageDialog(this,ex); 
-                }
-         
-    }//GEN-LAST:event_DeleteActionPerformed
-
-    private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
-    try{
-      con=Connect.ConnectDB();
-     String Password1= String.valueOf(txtPassword.getPassword());
-       String sql= "update Registration set password='" + Password1 + "',nameofuser='" + txtName.getText() + "',Email='" + txtEmailID.getText() + "',ContactNo='" + txtContactNo.getText() + "' where Username='" + txtUserName.getText() + "'";
-      
-      pst=con.prepareStatement(sql);
-      pst.execute();
-       String sql2= "update Users set user_password='" + Password1 + "' where username='" + txtUserName.getText() + "'";
-      
-      pst=con.prepareStatement(sql2);
-      pst.execute();
-      JOptionPane.showMessageDialog(this,"Successfully updated","User info",JOptionPane.INFORMATION_MESSAGE); 
-      Update.setEnabled(false);
-        }catch(HeadlessException | SQLException ex){
-           JOptionPane.showMessageDialog(this,ex); 
-                }
-    }//GEN-LAST:event_UpdateActionPerformed
-
-    private void GetDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GetDataActionPerformed
-      this.hide();
-      UsersRegistrationRecord frm = new UsersRegistrationRecord();
-      frm.setVisible(true); 
-    }//GEN-LAST:event_GetDataActionPerformed
-
     private void txtContactNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactNoKeyTyped
    char c=evt.getKeyChar();
       if (!(Character.isDigit(c)|| (c== KeyEvent.VK_BACK_SPACE)||(c==KeyEvent.VK_DELETE))){
@@ -339,6 +276,51 @@ PreparedStatement pst=null;
           evt.consume();
     }          
     }//GEN-LAST:event_txtContactNoKeyTyped
+
+    private void NewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewActionPerformed
+        Reset();
+    }//GEN-LAST:event_NewActionPerformed
+
+    private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
+        try{
+            con=Connect.ConnectDB();
+            String Password1= String.valueOf(txtPassword.getPassword());
+            String sql= "update Registration set password='" + Password1 + "',nameofuser='" + txtName.getText() + "',Email='" + txtBitsId.getText() + "',ContactNo='" + txtContactNo.getText() + "' where Username='" + txtEmail.getText() + "'";
+
+            pst=con.prepareStatement(sql);
+            pst.execute();
+            String sql2= "update Users set user_password='" + Password1 + "' where username='" + txtEmail.getText() + "'";
+
+            pst=con.prepareStatement(sql2);
+            pst.execute();
+            JOptionPane.showMessageDialog(this,"Successfully updated","User info",JOptionPane.INFORMATION_MESSAGE);
+            Update.setEnabled(false);
+        }catch(HeadlessException | SQLException ex){
+            JOptionPane.showMessageDialog(this,ex);
+        }
+    }//GEN-LAST:event_UpdateActionPerformed
+
+    private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
+        try
+        {
+            int P = JOptionPane.showConfirmDialog(null," Are you sure want to delete ?","Confirmation",JOptionPane.YES_NO_OPTION);
+            if (P==0)
+            {
+                con=Connect.ConnectDB();
+
+                String sql= "delete from Registration where Username = '" + txtEmail.getText() + "'";
+                pst=con.prepareStatement(sql);
+                pst.execute();
+                String sql1= "delete from Users where Username = '" + txtEmail.getText() + "'";
+                pst=con.prepareStatement(sql1);
+                pst.execute();
+                JOptionPane.showMessageDialog(this,"Successfully deleted","Record",JOptionPane.INFORMATION_MESSAGE);
+                Reset();
+            }
+        }catch(HeadlessException | SQLException ex){
+            JOptionPane.showMessageDialog(this,ex);
+        }
+    }//GEN-LAST:event_DeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -376,11 +358,10 @@ PreparedStatement pst=null;
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton Delete;
-    private javax.swing.JButton GetData;
+    private javax.swing.JButton Delete;
     private javax.swing.JButton New;
     public javax.swing.JButton Save;
-    public javax.swing.JButton Update;
+    private javax.swing.JButton Update;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -388,10 +369,10 @@ PreparedStatement pst=null;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    public javax.swing.JTextField txtBitsId;
     public javax.swing.JTextField txtContactNo;
-    public javax.swing.JTextField txtEmailID;
+    public javax.swing.JTextField txtEmail;
     public javax.swing.JTextField txtName;
     public javax.swing.JPasswordField txtPassword;
-    public javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }

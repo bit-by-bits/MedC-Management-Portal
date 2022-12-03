@@ -228,11 +228,11 @@ INSERT INTO `patientregistration` (`PatientID`, `Patientname`, `Fathername`, `Ad
 --
 
 CREATE TABLE `registration` (
-  `username` varchar(100) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `NameOfUser` varchar(250) NOT NULL,
-  `ContactNo` varchar(15) NOT NULL,
-  `Email` varchar(250) NOT NULL
+  `userName` varchar(100) NOT NULL,
+  `bitsMail` varchar(100) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `bitsId` varchar(15) NOT NULL,
+  `contactNo` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -240,7 +240,7 @@ CREATE TABLE `registration` (
 --
 
 INSERT INTO `registration` (`username`, `password`, `NameOfUser`, `ContactNo`, `Email`) VALUES
-('Faruk', '12345', 'Md Omar Faruk', '01771844336', 'Omar15-8709@diu.edu.bd');
+('oop_project', 'f20200000@pilani.bits-pilani.ac.in', '12345', '2020A3PS0000P', '7007000000');
 
 -- --------------------------------------------------------
 
@@ -303,6 +303,11 @@ CREATE TABLE `users` (
 CREATE TABLE `admin_users` (
   `username` varchar(100) NOT NULL,
   `user_password` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `notices` (
+  `notice_title` varchar(50) NOT NULL,
+  `notice_body` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

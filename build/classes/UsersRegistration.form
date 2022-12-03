@@ -68,11 +68,10 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="New" alignment="0" max="32767" attributes="0"/>
+                      <Component id="New" alignment="0" pref="85" max="32767" attributes="0"/>
                       <Component id="Save" alignment="0" max="32767" attributes="0"/>
                       <Component id="Delete" alignment="0" max="32767" attributes="0"/>
                       <Component id="Update" alignment="0" max="32767" attributes="0"/>
-                      <Component id="GetData" alignment="0" pref="85" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -89,9 +88,7 @@
                   <Component id="Delete" max="32767" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="Update" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="GetData" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -140,14 +137,6 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="GetData">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Get Data"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GetDataActionPerformed"/>
-          </Events>
-        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel2">
@@ -175,7 +164,7 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtEmailID" max="32767" attributes="0"/>
+                              <Component id="txtBitsId" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="txtPassword" alignment="0" pref="212" max="32767" attributes="0"/>
@@ -188,7 +177,7 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="txtUserName" min="-2" pref="212" max="-2" attributes="0"/>
+                          <Component id="txtEmail" min="-2" pref="212" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -205,7 +194,7 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtUserName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
@@ -215,7 +204,7 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtEmailID" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtBitsId" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
@@ -244,7 +233,7 @@
             <Property name="text" type="java.lang.String" value="BITS E-mail"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtUserName">
+        <Component class="javax.swing.JTextField" name="txtEmail">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -264,7 +253,7 @@
             <Property name="text" type="java.lang.String" value="BITS ID"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtEmailID">
+        <Component class="javax.swing.JTextField" name="txtBitsId">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
