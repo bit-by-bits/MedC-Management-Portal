@@ -52,6 +52,11 @@ public class AdminMenu extends javax.swing.JFrame {
         });
 
         ManageStudentsBtn.setText("Manage Students");
+        ManageStudentsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ManageStudentsBtnActionPerformed(evt);
+            }
+        });
 
         AppointmentsBtn.setText("View Appointments");
         AppointmentsBtn.setActionCommand("Manage Students");
@@ -110,6 +115,10 @@ public class AdminMenu extends javax.swing.JFrame {
     private void AppointmentsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppointmentsBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AppointmentsBtnActionPerformed
+
+    private void ManageStudentsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageStudentsBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ManageStudentsBtnActionPerformed
 
     /**
      * @param args the command line arguments
