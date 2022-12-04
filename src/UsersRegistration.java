@@ -130,6 +130,12 @@ public class UsersRegistration extends javax.swing.JFrame {
 
         jLabel2.setText("BITS E-mail");
 
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
+
         jLabel3.setText("Password");
 
         jLabel4.setText("BITS ID");
@@ -229,11 +235,15 @@ public class UsersRegistration extends javax.swing.JFrame {
             if (txtName.getText().equals("")) {
                 JOptionPane.showMessageDialog(this, "Please enter name", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
-            }
-            if (txtEmail.getText().equals("")) {
-                JOptionPane.showMessageDialog(this, "Please enter user name", "Error", JOptionPane.ERROR_MESSAGE);
+            }      
+            String[] emailSplit = txtEmail.getText().split("@");
+            String text2 = emailSplit[1];
+            System.out.println(text2);
+            if (txtEmail.getText().equals("") || !text2.equals("pilani.bits-pilani.ac.in")) {
+                JOptionPane.showMessageDialog(this, "Please enter valid BITS Mail", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
+
             String Password = String.valueOf(txtPassword.getPassword());
             if (Password.equals("")) {
                 JOptionPane.showMessageDialog(this, "Please enter password", "Error", JOptionPane.ERROR_MESSAGE);
@@ -321,6 +331,10 @@ public class UsersRegistration extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_DeleteActionPerformed
 
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -357,10 +371,10 @@ public class UsersRegistration extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Delete;
+    public javax.swing.JButton Delete;
     private javax.swing.JButton New;
     public javax.swing.JButton Save;
-    private javax.swing.JButton Update;
+    public javax.swing.JButton Update;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
