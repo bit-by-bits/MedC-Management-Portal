@@ -10,6 +10,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -20,9 +21,10 @@ import javax.swing.JOptionPane;
  * @author suyas
  */
 public class AddNotice extends javax.swing.JFrame {
-    Connection con=null;
-    ResultSet rs=null;
-    PreparedStatement pst=null;
+
+    Connection con = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
 
     /**
      * Creates new form AddNotice
@@ -126,27 +128,27 @@ public class AddNotice extends javax.swing.JFrame {
 
     private void publishNoticeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_publishNoticeActionPerformed
         // TODO add your handling code here:
-        String noticeTxt=noticeTitle.getText();
+        String noticeTxt = noticeTitle.getText();
         String contentTxt = noticeBody.getText();
-        if(noticeTxt.equals("") || contentTxt.equals("")){
-            JOptionPane.showMessageDialog( this, "Title or Body cannot be left empty",
-                "Error", JOptionPane.ERROR_MESSAGE);
+        if (noticeTxt.equals("") || contentTxt.equals("")) {
+            JOptionPane.showMessageDialog(this, "Title or Body cannot be left empty",
+                    "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         System.out.println(noticeTxt);
-        
-        try{
-            con=Connect.ConnectDB();  
-            Statement stmt;
-            stmt= con.createStatement();
-            
-            String sql= "insert into notices(notice_title,notice_body)values('"+ noticeTxt + "','"+ contentTxt +"')";
 
-            pst=con.prepareStatement(sql);
+        try {
+            con = Connect.ConnectDB();
+            Statement stmt;
+            stmt = con.createStatement();
+
+            String sql = "insert into notices(notice_title,notice_body)values('" + noticeTxt + "','" + contentTxt + "')";
+
+            pst = con.prepareStatement(sql);
             pst.execute();
-            JOptionPane.showMessageDialog(this,"Successfully Posted","Notice",JOptionPane.INFORMATION_MESSAGE);
-        }catch(HeadlessException | SQLException ex){
-            JOptionPane.showMessageDialog(this,ex);
+            JOptionPane.showMessageDialog(this, "Successfully Posted", "Notice", JOptionPane.INFORMATION_MESSAGE);
+        } catch (HeadlessException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex);
         }
 
     }//GEN-LAST:event_publishNoticeActionPerformed

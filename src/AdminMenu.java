@@ -5,7 +5,6 @@ import javax.swing.JFrame;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author suyas
@@ -18,7 +17,7 @@ public class AdminMenu extends javax.swing.JFrame {
     public AdminMenu() {
         initComponents();
         setLocationRelativeTo(null);
-        
+
     }
 
     /**
@@ -103,13 +102,13 @@ public class AdminMenu extends javax.swing.JFrame {
         System.out.println("Hello World");
         AddNotice frm = new AddNotice();
         frm.setVisible(true);
-        
-        
+
+
     }//GEN-LAST:event_NoticeBtnActionPerformed
 
     private void SalesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalesBtnActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_SalesBtnActionPerformed
 
     private void AppointmentsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppointmentsBtnActionPerformed

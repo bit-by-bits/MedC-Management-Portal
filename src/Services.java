@@ -8,45 +8,48 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
-
 public class Services extends javax.swing.JFrame {
-Connection con=null;
-ResultSet rs=null;
-PreparedStatement pst=null;
+
+    Connection con = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+
     /**
      * Creates new form Services
      */
     public Services() {
         initComponents();
-         setLocationRelativeTo(null);
-         txtServiceID.setVisible(false);
-         Get_Data1();
+        setLocationRelativeTo(null);
+        txtServiceID.setVisible(false);
+        Get_Data1();
     }
- private void Get_Data1(){
-      try{
-        con=Connect.ConnectDB();
-        String sql="select PatientID as 'Patient ID', PatientName as 'Patient Name' from Patientregistration order by PatientName";
-         
-         pst=con.prepareStatement(sql);
-         rs= pst.executeQuery();
-         tblPatient.setModel(DbUtils.resultSetToTableModel(rs));
-         }catch(Exception e){
+
+    private void Get_Data1() {
+        try {
+            con = Connect.ConnectDB();
+            String sql = "select PatientID as 'Patient ID', PatientName as 'Patient Name' from Patientregistration order by PatientName";
+
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            tblPatient.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-          
-}
+
+        }
     }
- private void Reset()
-{
-    txtPatientID.setText("");
-    txtServiceCharges.setText("");
-    txtPatientName.setText("");
-    txtServiceDate.setText("");
-    txtServiceName.setText("");
-    btnSave.setEnabled(true);
-    btnUpdate.setEnabled(false);
-    btnDelete.setEnabled(false);
-    txtServiceCharges.requestDefaultFocus();
+
+    private void Reset() {
+        txtPatientID.setText("");
+        txtServiceCharges.setText("");
+        txtPatientName.setText("");
+        txtServiceDate.setText("");
+        txtServiceName.setText("");
+        btnSave.setEnabled(true);
+        btnUpdate.setEnabled(false);
+        btnDelete.setEnabled(false);
+        txtServiceCharges.requestDefaultFocus();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -292,23 +295,23 @@ PreparedStatement pst=null;
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblPatientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPatientMouseClicked
-        try{
-            con=Connect.ConnectDB();
-            int row= tblPatient.getSelectedRow();
-            String table_click= tblPatient.getModel().getValueAt(row, 0).toString();
-            String sql= "select * from PatientRegistration where PatientID = '" + table_click + "'";
-            pst=con.prepareStatement(sql);
-            rs=  pst.executeQuery();
-            if(rs.next()){
+        try {
+            con = Connect.ConnectDB();
+            int row = tblPatient.getSelectedRow();
+            String table_click = tblPatient.getModel().getValueAt(row, 0).toString();
+            String sql = "select * from PatientRegistration where PatientID = '" + table_click + "'";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
 
-                String add1=rs.getString("PatientID");
+                String add1 = rs.getString("PatientID");
                 txtPatientID.setText(add1);
-                String add2=rs.getString("Patientname");
+                String add2 = rs.getString("Patientname");
                 txtPatientName.setText(add2);
-               
+
             }
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(this,ex);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex);
         }
     }//GEN-LAST:event_tblPatientMouseClicked
 
@@ -317,85 +320,84 @@ PreparedStatement pst=null;
     }//GEN-LAST:event_formWindowOpened
 
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
-    Reset();
+        Reset();
     }//GEN-LAST:event_btnNewActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-     try{
-      con=Connect.ConnectDB();
-       if (txtServiceName.getText().equals("")) {
-           JOptionPane.showMessageDialog( this, "Please enter service name","Error", JOptionPane.ERROR_MESSAGE);
-           return;
+        try {
+            con = Connect.ConnectDB();
+            if (txtServiceName.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Please enter service name", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-        if (txtServiceDate.getText().equals("")) {
-           JOptionPane.showMessageDialog( this, "Please enter service date","Error", JOptionPane.ERROR_MESSAGE);
-           return;
+            if (txtServiceDate.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Please enter service date", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-                if (txtPatientID.getText().equals("")) {
-           JOptionPane.showMessageDialog( this, "Please retrieve patient id","Error", JOptionPane.ERROR_MESSAGE);
-           return;
+            if (txtPatientID.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Please retrieve patient id", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
             }
             if (txtServiceCharges.getText().equals("")) {
-           JOptionPane.showMessageDialog( this, "Please enter service charges","Error", JOptionPane.ERROR_MESSAGE);
-           return;
+                JOptionPane.showMessageDialog(this, "Please enter service charges", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-      
-       String sql= "insert into Services(ServiceName,ServiceDate,PatientID,ServiceCharges)values('"+ txtServiceName.getText() + "','"+ txtServiceDate.getText() + "','" + txtPatientID.getText() + "'," + txtServiceCharges.getText() + ")";
-       pst=con.prepareStatement(sql);
-       pst.execute();
-     
-      JOptionPane.showMessageDialog(this,"Successfully saved","Record",JOptionPane.INFORMATION_MESSAGE); 
-      btnSave.setEnabled(false);
-       }catch(HeadlessException | SQLException ex){
-           JOptionPane.showMessageDialog(this,ex); 
-                }
+
+            String sql = "insert into Services(ServiceName,ServiceDate,PatientID,ServiceCharges)values('" + txtServiceName.getText() + "','" + txtServiceDate.getText() + "','" + txtPatientID.getText() + "'," + txtServiceCharges.getText() + ")";
+            pst = con.prepareStatement(sql);
+            pst.execute();
+
+            JOptionPane.showMessageDialog(this, "Successfully saved", "Record", JOptionPane.INFORMATION_MESSAGE);
+            btnSave.setEnabled(false);
+        } catch (HeadlessException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-    try{
-            int P = JOptionPane.showConfirmDialog(null," Are you sure want to delete ?","Confirmation",JOptionPane.YES_NO_OPTION);
-            if (P==0)
-            {
-                con=Connect.ConnectDB();
-                String sql= "delete from Services where ServiceID = " + txtServiceID.getText() + "";
-                pst=con.prepareStatement(sql);
+        try {
+            int P = JOptionPane.showConfirmDialog(null, " Are you sure want to delete ?", "Confirmation", JOptionPane.YES_NO_OPTION);
+            if (P == 0) {
+                con = Connect.ConnectDB();
+                String sql = "delete from Services where ServiceID = " + txtServiceID.getText() + "";
+                pst = con.prepareStatement(sql);
                 pst.execute();
-                JOptionPane.showMessageDialog(this,"Successfully deleted","Record",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Successfully deleted", "Record", JOptionPane.INFORMATION_MESSAGE);
 
                 Reset();
             }
-        }catch(HeadlessException | SQLException ex){
-            JOptionPane.showMessageDialog(this,ex);
+        } catch (HeadlessException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex);
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-      try{
-      con=Connect.ConnectDB();
-          
-       String sql= "update Services set Servicename='"+ txtServiceName.getText() + "',ServiceDate='"+ txtServiceDate.getText() + "',PatientID='" + txtPatientID.getText() + "',ServiceCharges=" + txtServiceCharges.getText() + " where ServiceID=" + txtServiceID.getText() + "";
-       pst=con.prepareStatement(sql);
-       pst.execute();
-     
-      JOptionPane.showMessageDialog(this,"Successfully updated","Record",JOptionPane.INFORMATION_MESSAGE); 
-      btnUpdate.setEnabled(false);
-       }catch(HeadlessException | SQLException ex){
-           JOptionPane.showMessageDialog(this,ex); 
-                }
+        try {
+            con = Connect.ConnectDB();
+
+            String sql = "update Services set Servicename='" + txtServiceName.getText() + "',ServiceDate='" + txtServiceDate.getText() + "',PatientID='" + txtPatientID.getText() + "',ServiceCharges=" + txtServiceCharges.getText() + " where ServiceID=" + txtServiceID.getText() + "";
+            pst = con.prepareStatement(sql);
+            pst.execute();
+
+            JOptionPane.showMessageDialog(this, "Successfully updated", "Record", JOptionPane.INFORMATION_MESSAGE);
+            btnUpdate.setEnabled(false);
+        } catch (HeadlessException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnGetDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetDataActionPerformed
-     this.hide();
-     ServicesRecord frm= new ServicesRecord();
-     frm.setVisible(true);
+        this.hide();
+        ServicesRecord frm = new ServicesRecord();
+        frm.setVisible(true);
     }//GEN-LAST:event_btnGetDataActionPerformed
 
     private void txtServiceChargesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtServiceChargesKeyTyped
-       char c=evt.getKeyChar();
-      if (!(Character.isDigit(c)|| (c== KeyEvent.VK_BACK_SPACE)||(c==KeyEvent.VK_DELETE))){
-          getToolkit().beep();
-          evt.consume();
-    }          
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+            getToolkit().beep();
+            evt.consume();
+        }
     }//GEN-LAST:event_txtServiceChargesKeyTyped
 
     /**
