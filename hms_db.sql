@@ -297,7 +297,7 @@ INSERT INTO `services` (`ServiceID`, `ServiceName`, `ServiceDate`, `PatientID`, 
 
 CREATE TABLE `users` (
   `username` varchar(100) NOT NULL,
-  `user_password` varchar(50) NOT NULL
+  `user_password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `admin_users` (
@@ -306,9 +306,18 @@ CREATE TABLE `admin_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `notices` (
-  `notice_title` varchar(50) NOT NULL,
+  `notice_title` varchar(100) NOT NULL,
   `notice_body` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `appointments` (
+  `name` varchar(100) NOT NULL,
+  `id` varchar(100) NOT NULL,
+  `contact` int NOT NULL,
+  `doctor` varchar(100) NOT NULL,
+  `time` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 --
 -- Dumping data for table `users`
