@@ -8,11 +8,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
-
 public class UsersRegistration extends javax.swing.JFrame {
-Connection con=null;
-ResultSet rs=null;
-PreparedStatement pst=null;
+
+    Connection con = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+
     /**
      * Creates new form UsersRegistration
      */
@@ -20,19 +21,19 @@ PreparedStatement pst=null;
         initComponents();
         setLocationRelativeTo(null);
     }
-    private void Reset()
-{
-    txtName.setText("");
-    txtEmail.setText("");
-    txtPassword.setText("");
-    txtBitsId.setText("");
-    txtContactNo.setText("");
-    Save.setEnabled(true);
-    Delete.setEnabled(false);
-    Update.setEnabled(false);
-    txtEmail.requestDefaultFocus();
-   
-}
+
+    private void Reset() {
+        txtName.setText("");
+        txtEmail.setText("");
+        txtPassword.setText("");
+        txtBitsId.setText("");
+        txtContactNo.setText("");
+        Save.setEnabled(true);
+        Delete.setEnabled(false);
+        Update.setEnabled(false);
+        txtEmail.requestDefaultFocus();
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -223,58 +224,58 @@ PreparedStatement pst=null;
     }// </editor-fold>//GEN-END:initComponents
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
-         try{
-      con=Connect.ConnectDB();
-       if (txtName.getText().equals("")) {
-           JOptionPane.showMessageDialog( this, "Please enter name","Error", JOptionPane.ERROR_MESSAGE);
-           return;
+        try {
+            con = Connect.ConnectDB();
+            if (txtName.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Please enter name", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-        if (txtEmail.getText().equals("")) {
-           JOptionPane.showMessageDialog( this, "Please enter user name","Error", JOptionPane.ERROR_MESSAGE);
-           return;
+            if (txtEmail.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Please enter user name", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-        String Password= String.valueOf(txtPassword.getPassword());
-         if (Password.equals("")) {
-           JOptionPane.showMessageDialog( this, "Please enter password","Error", JOptionPane.ERROR_MESSAGE);
-           return;
+            String Password = String.valueOf(txtPassword.getPassword());
+            if (Password.equals("")) {
+                JOptionPane.showMessageDialog(this, "Please enter password", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-          if (txtContactNo.getText().equals("")) {
-           JOptionPane.showMessageDialog( this, "Please enter contact no.","Error", JOptionPane.ERROR_MESSAGE);
-           return;
+            if (txtContactNo.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Please enter contact no.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-          
-       Statement stmt;
-       stmt= con.createStatement();
-       String sql1="Select username from Registration where Username= '" + txtEmail.getText() + "'";
-      rs=stmt.executeQuery(sql1);
-      if(rs.next()){
-        JOptionPane.showMessageDialog( this, "User name already exists","Error", JOptionPane.ERROR_MESSAGE);
-        txtEmail.setText("");
-        txtEmail.requestDefaultFocus();
-       return;
-   }
-       String Password1= String.valueOf(txtPassword.getPassword());
-       String sql= "insert into Registration(userName,bitsMail,password,bitsId,contactNo)values('"+ txtName.getText() + "','" + txtEmail.getText() + "','" + Password1 + "','" + txtBitsId.getText() + "','" + txtContactNo.getText() + "')";
-      
-      pst=con.prepareStatement(sql);
-      pst.execute();
-       String sql2= "insert into Users(username,user_password)values('" + txtEmail.getText() + "','" + Password1 + "')";
-      
-      pst=con.prepareStatement(sql2);
-      pst.execute();
-      JOptionPane.showMessageDialog(this,"Successfully Registered","User",JOptionPane.INFORMATION_MESSAGE); 
-      Save.setEnabled(false);
-        }catch(HeadlessException | SQLException ex){
-           JOptionPane.showMessageDialog(this,ex); 
-                }
+
+            Statement stmt;
+            stmt = con.createStatement();
+            String sql1 = "Select username from Registration where Username= '" + txtEmail.getText() + "'";
+            rs = stmt.executeQuery(sql1);
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(this, "User name already exists", "Error", JOptionPane.ERROR_MESSAGE);
+                txtEmail.setText("");
+                txtEmail.requestDefaultFocus();
+                return;
+            }
+            String Password1 = String.valueOf(txtPassword.getPassword());
+            String sql = "insert into Registration(userName,bitsMail,password,bitsId,contactNo)values('" + txtName.getText() + "','" + txtEmail.getText() + "','" + Password1 + "','" + txtBitsId.getText() + "','" + txtContactNo.getText() + "')";
+
+            pst = con.prepareStatement(sql);
+            pst.execute();
+            String sql2 = "insert into Users(username,user_password)values('" + txtEmail.getText() + "','" + Password1 + "')";
+
+            pst = con.prepareStatement(sql2);
+            pst.execute();
+            JOptionPane.showMessageDialog(this, "Successfully Registered", "User", JOptionPane.INFORMATION_MESSAGE);
+            Save.setEnabled(false);
+        } catch (HeadlessException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        }
     }//GEN-LAST:event_SaveActionPerformed
 
     private void txtContactNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactNoKeyTyped
-   char c=evt.getKeyChar();
-      if (!(Character.isDigit(c)|| (c== KeyEvent.VK_BACK_SPACE)||(c==KeyEvent.VK_DELETE))){
-          getToolkit().beep();
-          evt.consume();
-    }          
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+            getToolkit().beep();
+            evt.consume();
+        }
     }//GEN-LAST:event_txtContactNoKeyTyped
 
     private void NewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewActionPerformed
@@ -282,43 +283,41 @@ PreparedStatement pst=null;
     }//GEN-LAST:event_NewActionPerformed
 
     private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
-        try{
-            con=Connect.ConnectDB();
-            String Password1= String.valueOf(txtPassword.getPassword());
-            String sql= "update Registration set password='" + Password1 + "',nameofuser='" + txtName.getText() + "',Email='" + txtBitsId.getText() + "',ContactNo='" + txtContactNo.getText() + "' where Username='" + txtEmail.getText() + "'";
+        try {
+            con = Connect.ConnectDB();
+            String Password1 = String.valueOf(txtPassword.getPassword());
+            String sql = "update Registration set password='" + Password1 + "',nameofuser='" + txtName.getText() + "',Email='" + txtBitsId.getText() + "',ContactNo='" + txtContactNo.getText() + "' where Username='" + txtEmail.getText() + "'";
 
-            pst=con.prepareStatement(sql);
+            pst = con.prepareStatement(sql);
             pst.execute();
-            String sql2= "update Users set user_password='" + Password1 + "' where username='" + txtEmail.getText() + "'";
+            String sql2 = "update Users set user_password='" + Password1 + "' where username='" + txtEmail.getText() + "'";
 
-            pst=con.prepareStatement(sql2);
+            pst = con.prepareStatement(sql2);
             pst.execute();
-            JOptionPane.showMessageDialog(this,"Successfully updated","User info",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Successfully updated", "User info", JOptionPane.INFORMATION_MESSAGE);
             Update.setEnabled(false);
-        }catch(HeadlessException | SQLException ex){
-            JOptionPane.showMessageDialog(this,ex);
+        } catch (HeadlessException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex);
         }
     }//GEN-LAST:event_UpdateActionPerformed
 
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
-        try
-        {
-            int P = JOptionPane.showConfirmDialog(null," Are you sure want to delete ?","Confirmation",JOptionPane.YES_NO_OPTION);
-            if (P==0)
-            {
-                con=Connect.ConnectDB();
+        try {
+            int P = JOptionPane.showConfirmDialog(null, " Are you sure want to delete ?", "Confirmation", JOptionPane.YES_NO_OPTION);
+            if (P == 0) {
+                con = Connect.ConnectDB();
 
-                String sql= "delete from Registration where Username = '" + txtEmail.getText() + "'";
-                pst=con.prepareStatement(sql);
+                String sql = "delete from Registration where Username = '" + txtEmail.getText() + "'";
+                pst = con.prepareStatement(sql);
                 pst.execute();
-                String sql1= "delete from Users where Username = '" + txtEmail.getText() + "'";
-                pst=con.prepareStatement(sql1);
+                String sql1 = "delete from Users where Username = '" + txtEmail.getText() + "'";
+                pst = con.prepareStatement(sql1);
                 pst.execute();
-                JOptionPane.showMessageDialog(this,"Successfully deleted","Record",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Successfully deleted", "Record", JOptionPane.INFORMATION_MESSAGE);
                 Reset();
             }
-        }catch(HeadlessException | SQLException ex){
-            JOptionPane.showMessageDialog(this,ex);
+        } catch (HeadlessException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex);
         }
     }//GEN-LAST:event_DeleteActionPerformed
 

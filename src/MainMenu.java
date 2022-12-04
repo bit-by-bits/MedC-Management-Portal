@@ -26,6 +26,7 @@ public class MainMenu extends javax.swing.JFrame {
         jMenuItem16 = new javax.swing.JMenuItem();
         jLabel2 = new javax.swing.JLabel();
         noticeBoard = new javax.swing.JButton();
+        bookAppointment = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -71,6 +72,13 @@ public class MainMenu extends javax.swing.JFrame {
         setResizable(false);
 
         noticeBoard.setText("Notice Board");
+
+        bookAppointment.setText("Book Appointment");
+        bookAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bookAppointmentActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Master Entry");
 
@@ -261,14 +269,18 @@ public class MainMenu extends javax.swing.JFrame {
             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addComponent(noticeBoard, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(bookAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(noticeBoard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 237, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
+                .addComponent(bookAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
                 .addComponent(noticeBoard, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
@@ -277,93 +289,99 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-    UsersRegistration frm = new UsersRegistration();
-    frm.setVisible(true); 
+        UsersRegistration frm = new UsersRegistration();
+        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-    ChangePassword frm = new ChangePassword();
-    frm.setVisible(true); 
+        ChangePassword frm = new ChangePassword();
+        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-    LoginDetails frm = new LoginDetails();
-    frm.setVisible(true); 
+        LoginDetails frm = new LoginDetails();
+        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-   Room frm = new Room();
-   frm.setVisible(true); 
+        Room frm = new Room();
+        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-     Doctor frm= new Doctor();
-     frm.setVisible(true);
+        Doctor frm = new Doctor();
+        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-     Ward frm= new Ward();
-     frm.setVisible(true);
+        Ward frm = new Ward();
+        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
-      PatientAdmit_Ward frm= new PatientAdmit_Ward();
-     frm.setVisible(true);
+        PatientAdmit_Ward frm = new PatientAdmit_Ward();
+        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem14ActionPerformed
 
     private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
-   
+
     }//GEN-LAST:event_jMenu5ActionPerformed
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
-     About frm= new About();
-     frm.setVisible(true);
+        About frm = new About();
+        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-     Nurse_Wardboy frm= new Nurse_Wardboy();
-     frm.setVisible(true);
+        Nurse_Wardboy frm = new Nurse_Wardboy();
+        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-    PatientRegistration frm= new PatientRegistration();
-    frm.setVisible(true);
+        PatientRegistration frm = new PatientRegistration();
+        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-    PatientAdmit_Room frm= new PatientAdmit_Room();
-    frm.setVisible(true);
+        PatientAdmit_Room frm = new PatientAdmit_Room();
+        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
-    PatientDischarge_Room frm= new PatientDischarge_Room();
-    frm.setVisible(true);
+        PatientDischarge_Room frm = new PatientDischarge_Room();
+        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem17ActionPerformed
 
     private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem18ActionPerformed
-    PatientDischarge_Ward frm= new PatientDischarge_Ward();
-    frm.setVisible(true);
+        PatientDischarge_Ward frm = new PatientDischarge_Ward();
+        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem18ActionPerformed
 
     private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
-    Services frm= new Services();
-    frm.setVisible(true);
+        Services frm = new Services();
+        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem19ActionPerformed
 
     private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
-    Bill_Room frm= new Bill_Room();
-    frm.setVisible(true);
+        Bill_Room frm = new Bill_Room();
+        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem20ActionPerformed
 
     private void jMenuItem21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem21ActionPerformed
-    Bill_Ward frm= new Bill_Ward();
-    frm.setVisible(true);
+        Bill_Ward frm = new Bill_Ward();
+        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem21ActionPerformed
 
     private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
-     Contact frm = new Contact();
-     frm.setVisible(true);
+        Contact frm = new Contact();
+        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem15ActionPerformed
+
+    private void bookAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookAppointmentActionPerformed
+        // TODO add your handling code here:
+        Appointment frame = new Appointment();
+        frame.setVisible(true);
+    }//GEN-LAST:event_bookAppointmentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -400,6 +418,7 @@ public class MainMenu extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bookAppointment;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;

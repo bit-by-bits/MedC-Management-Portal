@@ -5,31 +5,34 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
-
 public class PatientAdmit_WardRecord extends javax.swing.JFrame {
-Connection con=null;
-ResultSet rs=null;
-PreparedStatement pst=null;
+
+    Connection con = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+
     /**
      * Creates new form PatientAdmit_RoomRecord
      */
     public PatientAdmit_WardRecord() {
         initComponents();
-        con= Connect.ConnectDB();
+        con = Connect.ConnectDB();
         Get_Data();
         setLocationRelativeTo(null);
     }
- private void Get_Data(){
-          try{
-              String sql="Select AdmitID as 'Admit ID',PatientRegistration.PatientID as 'Patient ID',PatientRegistration.PatientName as 'Patient Name',PatientRegistration.Gen as 'Gender',PatientRegistration.BG as 'Blood Group',Disease,AdmitDate as 'Admit Date',Ward.Wardname as 'Ward Name',Doctor.DoctorID as 'Doctor ID',DoctorName as 'Doctor Name',AdmitPatient_Ward.AP_Remarks as 'Remarks' from Ward,Doctor,PatientRegistration,AdmitPatient_Ward where Ward.Wardname=AdmitPatient_Ward.Wardname and Doctor.DoctorID=AdmitPatient_Ward.DoctorID and PatientRegistration.PatientID=AdmitPatient_Ward.PatientID order by admitdate";
-              pst=con.prepareStatement(sql);
-          rs= pst.executeQuery();
-         jTable1.setModel(DbUtils.resultSetToTableModel(rs));
-         }catch(Exception e){
+
+    private void Get_Data() {
+        try {
+            String sql = "Select AdmitID as 'Admit ID',PatientRegistration.PatientID as 'Patient ID',PatientRegistration.PatientName as 'Patient Name',PatientRegistration.Gen as 'Gender',PatientRegistration.BG as 'Blood Group',Disease,AdmitDate as 'Admit Date',Ward.Wardname as 'Ward Name',Doctor.DoctorID as 'Doctor ID',DoctorName as 'Doctor Name',AdmitPatient_Ward.AP_Remarks as 'Remarks' from Ward,Doctor,PatientRegistration,AdmitPatient_Ward where Ward.Wardname=AdmitPatient_Ward.Wardname and Doctor.DoctorID=AdmitPatient_Ward.DoctorID and PatientRegistration.PatientID=AdmitPatient_Ward.PatientID order by admitdate";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-          
-}
+
+        }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -86,56 +89,56 @@ PreparedStatement pst=null;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-    try{
-            con=Connect.ConnectDB();
-            int row= jTable1.getSelectedRow();
-            String table_click= jTable1.getModel().getValueAt(row, 0).toString();
-             String sql="Select * from Ward,Doctor,PatientRegistration,AdmitPatient_Ward where Ward.Wardname=AdmitPatient_Ward.Wardname and Doctor.DoctorID=AdmitPatient_Ward.DoctorID and PatientRegistration.PatientID=AdmitPatient_Ward.PatientID and AdmitID=" + table_click + "";   
-            pst=con.prepareStatement(sql);
-            rs=  pst.executeQuery();
-            if(rs.next()){
+        try {
+            con = Connect.ConnectDB();
+            int row = jTable1.getSelectedRow();
+            String table_click = jTable1.getModel().getValueAt(row, 0).toString();
+            String sql = "Select * from Ward,Doctor,PatientRegistration,AdmitPatient_Ward where Ward.Wardname=AdmitPatient_Ward.Wardname and Doctor.DoctorID=AdmitPatient_Ward.DoctorID and PatientRegistration.PatientID=AdmitPatient_Ward.PatientID and AdmitID=" + table_click + "";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
                 this.hide();
                 PatientAdmit_Ward frm = new PatientAdmit_Ward();
                 frm.setVisible(true);
-                String add1=rs.getString("DoctorID");
+                String add1 = rs.getString("DoctorID");
                 frm.txtDoctorID.setText(add1);
-                String add2=rs.getString("Doctorname");
+                String add2 = rs.getString("Doctorname");
                 frm.txtDoctorName.setText(add2);
-                String add3=rs.getString("PatientID");
+                String add3 = rs.getString("PatientID");
                 frm.PatientID.setText(add3);
-                String add5=rs.getString("PatientName");
+                String add5 = rs.getString("PatientName");
                 frm.txtPatientName.setText(add5);
-                String add6=rs.getString("Gen");
+                String add6 = rs.getString("Gen");
                 frm.txtGender.setText(add6);
-                String add7=rs.getString("BG");
+                String add7 = rs.getString("BG");
                 frm.txtBloodGroup.setText(add7);
-                String add9=rs.getString("Disease");
+                String add9 = rs.getString("Disease");
                 frm.txtDisease.setText(add9);
-                String add11=rs.getString("AdmitDate");
+                String add11 = rs.getString("AdmitDate");
                 frm.txtAdmitDate.setText(add11);
-                String add14=rs.getString("Wardname");
+                String add14 = rs.getString("Wardname");
                 frm.cmbWardName1.setSelectedItem(add14);
                 frm.cmbWardName.setSelectedItem(add14);
-                String add15=rs.getString("AP_Remarks");
+                String add15 = rs.getString("AP_Remarks");
                 frm.txtRemarks.setText(add15);
                 int add16 = rs.getInt("AdmitID");
-                String add17= Integer.toString(add16);
+                String add17 = Integer.toString(add16);
                 frm.txtAdmitID.setText(add17);
-                
+
                 frm.btnUpdate.setEnabled(true);
                 frm.btnDelete.setEnabled(true);
                 frm.btnSave.setEnabled(false);
-             
+
             }
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(this,ex);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex);
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-       this.hide();
-       PatientAdmit_Ward frm = new PatientAdmit_Ward();
-       frm.setVisible(true);
+        this.hide();
+        PatientAdmit_Ward frm = new PatientAdmit_Ward();
+        frm.setVisible(true);
     }//GEN-LAST:event_formWindowClosing
 
     /**

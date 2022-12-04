@@ -4,29 +4,33 @@ import javax.swing.*;
 import net.proteanit.sql.DbUtils;
 
 public class LoginDetails extends javax.swing.JFrame {
-Connection con=null;
-ResultSet rs=null;
-PreparedStatement pst=null;
+
+    Connection con = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+
     /**
      * Creates new form LoginDetails
      */
     public LoginDetails() {
         initComponents();
-        con= Connect.ConnectDB();
+        con = Connect.ConnectDB();
         Get_Data();
         setLocationRelativeTo(null);
     }
-    private void Get_Data(){
-        String sql="select UserName as 'User Name',User_Password as 'Password' from users order by username";
-          try{
-         pst=con.prepareStatement(sql);
-          rs= pst.executeQuery();
-         Users_table.setModel(DbUtils.resultSetToTableModel(rs));
-         }catch(Exception e){
+
+    private void Get_Data() {
+        String sql = "select UserName as 'User Name',User_Password as 'Password' from users order by username";
+        try {
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            Users_table.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-          
-}
+
+        }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -87,7 +91,7 @@ PreparedStatement pst=null;
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-       
+
     }//GEN-LAST:event_formWindowOpened
 
     /**

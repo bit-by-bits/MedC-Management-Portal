@@ -239,7 +239,7 @@ CREATE TABLE `registration` (
 -- Dumping data for table `registration`
 --
 
-INSERT INTO `registration` (`username`, `password`, `NameOfUser`, `ContactNo`, `Email`) VALUES
+INSERT INTO `registration` (`username`, `bitsMail`, `password`, `bitsId`, `contactNo`) VALUES
 ('oop_project', 'f20200000@pilani.bits-pilani.ac.in', '12345', '2020A3PS0000P', '7007000000');
 
 -- --------------------------------------------------------

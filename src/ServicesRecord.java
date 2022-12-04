@@ -5,30 +5,34 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
-
 public class ServicesRecord extends javax.swing.JFrame {
-Connection con=null;
-ResultSet rs=null;
-PreparedStatement pst=null;
+
+    Connection con = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+
     /**
      * Creates new form ServicesRecord
      */
     public ServicesRecord() {
         initComponents();
-         con= Connect.ConnectDB();
+        con = Connect.ConnectDB();
         Get_Data();
         setLocationRelativeTo(null);
     }
- private void Get_Data(){
-       String sql="select ServiceID as 'Service ID', ServiceName as 'Service Name',ServiceDate as 'Service Date',PatientRegistration.PatientID as 'Patient ID',PatientName as 'Patient Name',ServiceCharges as 'Service Charges' from PatientRegistration,Services where Services.PatientID=PatientRegistration.PatientID order by PatientName";
-       try{         pst=con.prepareStatement(sql);
-          rs= pst.executeQuery();
-         jTable1.setModel(DbUtils.resultSetToTableModel(rs));
-         }catch(Exception e){
+
+    private void Get_Data() {
+        String sql = "select ServiceID as 'Service ID', ServiceName as 'Service Name',ServiceDate as 'Service Date',PatientRegistration.PatientID as 'Patient ID',PatientName as 'Patient Name',ServiceCharges as 'Service Charges' from PatientRegistration,Services where Services.PatientID=PatientRegistration.PatientID order by PatientName";
+        try {
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-          
-}
+
+        }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -83,45 +87,45 @@ PreparedStatement pst=null;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-      try{
-            con=Connect.ConnectDB();
-            int row= jTable1.getSelectedRow();
-            String table_click= jTable1.getModel().getValueAt(row, 0).toString();
-           String sql=" Select * from PatientRegistration,Services where Services.PatientID=PatientRegistration.PatientID and ServiceID=" + table_click  + "";
-            pst=con.prepareStatement(sql);
-            rs=  pst.executeQuery();
-            if(rs.next()){
+        try {
+            con = Connect.ConnectDB();
+            int row = jTable1.getSelectedRow();
+            String table_click = jTable1.getModel().getValueAt(row, 0).toString();
+            String sql = " Select * from PatientRegistration,Services where Services.PatientID=PatientRegistration.PatientID and ServiceID=" + table_click + "";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
                 this.hide();
                 Services frm = new Services();
                 frm.setVisible(true);
-                String add1=rs.getString("ServiceName");
+                String add1 = rs.getString("ServiceName");
                 frm.txtServiceName.setText(add1);
-                String add2=rs.getString("ServiceDate");
+                String add2 = rs.getString("ServiceDate");
                 frm.txtServiceDate.setText(add2);
-                String add3=rs.getString("PatientName");
+                String add3 = rs.getString("PatientName");
                 frm.txtPatientName.setText(add3);
-                String add4=rs.getString("PatientID");
+                String add4 = rs.getString("PatientID");
                 frm.txtPatientID.setText(add4);
                 int add5 = rs.getInt("ServiceID");
-                String add6= Integer.toString(add5);
+                String add6 = Integer.toString(add5);
                 frm.txtServiceID.setText(add6);
                 int add7 = rs.getInt("ServiceCharges");
-                String add8= Integer.toString(add7);
+                String add8 = Integer.toString(add7);
                 frm.txtServiceCharges.setText(add8);
                 frm.btnSave.setEnabled(false);
                 frm.btnDelete.setEnabled(true);
                 frm.btnUpdate.setEnabled(true);
             }
-          
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(this,ex);
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex);
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-   this.hide();
-   Services frm = new Services();
-   frm.setVisible(true);
+        this.hide();
+        Services frm = new Services();
+        frm.setVisible(true);
     }//GEN-LAST:event_formWindowClosing
 
     /**

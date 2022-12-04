@@ -7,12 +7,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
-
-
 public class PatientDischarge_Room extends javax.swing.JFrame {
-Connection con=null;
-ResultSet rs=null;
-PreparedStatement pst=null;
+
+    Connection con = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+
     /**
      * Creates new form PatientDischarge_Room
      */
@@ -22,23 +22,24 @@ PreparedStatement pst=null;
         txtDischargeID.setVisible(false);
         txtAdmitID.setVisible(false);
     }
-private void Reset()
-{
-    txtDoctorID.setText("");
-    txtDoctorName.setText("");
-    PatientID.setText("");
-    txtPatientName.setText("");
-    txtBloodGroup.setText("");
-    txtGender.setText("");
-    txtDisease.setText("");
-    txtAdmitDate.setText("");
-    txtRoomNo.setText("");
-    txtRemarks.setText("");
-    txtDischargeDate.setText("");
-    btnSave.setEnabled(true);
-    btnUpdate.setEnabled(false);
-    btnDelete.setEnabled(false);
+
+    private void Reset() {
+        txtDoctorID.setText("");
+        txtDoctorName.setText("");
+        PatientID.setText("");
+        txtPatientName.setText("");
+        txtBloodGroup.setText("");
+        txtGender.setText("");
+        txtDisease.setText("");
+        txtAdmitDate.setText("");
+        txtRoomNo.setText("");
+        txtRemarks.setText("");
+        txtDischargeDate.setText("");
+        btnSave.setEnabled(true);
+        btnUpdate.setEnabled(false);
+        btnDelete.setEnabled(false);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -359,113 +360,112 @@ private void Reset()
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-   try{
-            con=Connect.ConnectDB();
-              if (PatientID.getText().equals("")) {
-                JOptionPane.showMessageDialog( this, "Please retrieve Patient ID","Error", JOptionPane.ERROR_MESSAGE);
+        try {
+            con = Connect.ConnectDB();
+            if (PatientID.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Please retrieve Patient ID", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             if (txtPatientName.getText().equals("")) {
-                JOptionPane.showMessageDialog( this, "Please retrieve Patient Name","Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please retrieve Patient Name", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-           if (txtGender.getText().equals("")) {
-                JOptionPane.showMessageDialog( this, "Please retrieve Gender","Error", JOptionPane.ERROR_MESSAGE);
+            if (txtGender.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Please retrieve Gender", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-         
+
             if (txtBloodGroup.getText().equals("")) {
-                JOptionPane.showMessageDialog( this, "Please retrieve blood group","Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please retrieve blood group", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             if (txtDisease.getText().equals("")) {
-                JOptionPane.showMessageDialog( this, "Please retrieve disease","Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please retrieve disease", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-             if (txtAdmitDate.getText().equals("")) {
-                JOptionPane.showMessageDialog( this, "Please retrieve admit date","Error", JOptionPane.ERROR_MESSAGE);
+            if (txtAdmitDate.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Please retrieve admit date", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-           
+
             if (txtDoctorID.getText().equals("")) {
-                JOptionPane.showMessageDialog( this, "Please retrieve doctor id","Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please retrieve doctor id", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
 
             }
             if (txtDoctorName.getText().equals("")) {
-                JOptionPane.showMessageDialog( this, "Please enter retrieve doctor name","Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please enter retrieve doctor name", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
 
             }
-             if (txtDischargeDate.getText().equals("")) {
-                JOptionPane.showMessageDialog( this, "Please enter discharge date","Error", JOptionPane.ERROR_MESSAGE);
+            if (txtDischargeDate.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Please enter discharge date", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
 
             }
-              Statement stmt;
-       stmt= con.createStatement();
-       String sql1="Select admitID from DischargePatient_Room where AdmitID= " + txtAdmitID.getText() + "";
-      rs=stmt.executeQuery(sql1);
-      if(rs.next()){
-        JOptionPane.showMessageDialog( this, "Record already exists","Error", JOptionPane.ERROR_MESSAGE);
-        return;
-      }
-     
-            String sql= "insert into DischargePatient_Room(AdmitID,DischargeDate,DP_Remarks)values("+ txtAdmitID.getText() + ",'"+ txtDischargeDate.getText() + "','"+ txtRemarks.getText() + "')";
+            Statement stmt;
+            stmt = con.createStatement();
+            String sql1 = "Select admitID from DischargePatient_Room where AdmitID= " + txtAdmitID.getText() + "";
+            rs = stmt.executeQuery(sql1);
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(this, "Record already exists", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
 
-            pst=con.prepareStatement(sql);
+            String sql = "insert into DischargePatient_Room(AdmitID,DischargeDate,DP_Remarks)values(" + txtAdmitID.getText() + ",'" + txtDischargeDate.getText() + "','" + txtRemarks.getText() + "')";
+
+            pst = con.prepareStatement(sql);
             pst.execute();
-            String sql3= "update room set RoomStatus='Vacant' where RoomNo='" + txtRoomNo.getText() + "'";
-            pst=con.prepareStatement(sql3);
+            String sql3 = "update room set RoomStatus='Vacant' where RoomNo='" + txtRoomNo.getText() + "'";
+            pst = con.prepareStatement(sql3);
             pst.execute();
-            JOptionPane.showMessageDialog(this,"Successfully discharged","Patient",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Successfully discharged", "Patient", JOptionPane.INFORMATION_MESSAGE);
             btnSave.setEnabled(false);
 
-        }catch(HeadlessException | SQLException ex){
-            JOptionPane.showMessageDialog(this,ex);
+        } catch (HeadlessException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex);
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
-    Reset();
+        Reset();
     }//GEN-LAST:event_btnNewActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-       try{
-            int P = JOptionPane.showConfirmDialog(null," Are you sure want to delete ?","Confirmation",JOptionPane.YES_NO_OPTION);
-            if (P==0)
-            {
-                con=Connect.ConnectDB();
-                String sql= "delete from DischargePatient_Room where ID = " + txtDischargeID.getText() + "";
-                pst=con.prepareStatement(sql);
+        try {
+            int P = JOptionPane.showConfirmDialog(null, " Are you sure want to delete ?", "Confirmation", JOptionPane.YES_NO_OPTION);
+            if (P == 0) {
+                con = Connect.ConnectDB();
+                String sql = "delete from DischargePatient_Room where ID = " + txtDischargeID.getText() + "";
+                pst = con.prepareStatement(sql);
                 pst.execute();
-                JOptionPane.showMessageDialog(this,"Successfully deleted","Record",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Successfully deleted", "Record", JOptionPane.INFORMATION_MESSAGE);
 
                 Reset();
             }
-        }catch(HeadlessException | SQLException ex){
-            JOptionPane.showMessageDialog(this,ex);
+        } catch (HeadlessException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex);
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-    try{
-            con=Connect.ConnectDB();
-       
-            String sql= "update DischargePatient_Room set AdmitID="+ txtAdmitID.getText() + ",DischargeDate='"+ txtDischargeDate.getText() + "',DP_Remarks='"+ txtRemarks.getText() + "' where ID= " + txtDischargeID.getText() + "";
-            pst=con.prepareStatement(sql);
+        try {
+            con = Connect.ConnectDB();
+
+            String sql = "update DischargePatient_Room set AdmitID=" + txtAdmitID.getText() + ",DischargeDate='" + txtDischargeDate.getText() + "',DP_Remarks='" + txtRemarks.getText() + "' where ID= " + txtDischargeID.getText() + "";
+            pst = con.prepareStatement(sql);
             pst.execute();
-            JOptionPane.showMessageDialog(this,"Successfully updated","Record",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Successfully updated", "Record", JOptionPane.INFORMATION_MESSAGE);
             btnSave.setEnabled(false);
 
-        }catch(HeadlessException | SQLException ex){
-            JOptionPane.showMessageDialog(this,ex);
+        } catch (HeadlessException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex);
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnGetDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetDataActionPerformed
-    this.hide();
-        PatientDischargeRecord_Room frm= new PatientDischargeRecord_Room();
+        this.hide();
+        PatientDischargeRecord_Room frm = new PatientDischargeRecord_Room();
         frm.setVisible(true);
     }//GEN-LAST:event_btnGetDataActionPerformed
 

@@ -8,32 +8,33 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
-
 public class Nurse_Wardboy extends javax.swing.JFrame {
-Connection con=null;
-ResultSet rs=null;
-PreparedStatement pst=null;
-  
+
+    Connection con = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+
     public Nurse_Wardboy() {
         initComponents();
         setLocationRelativeTo(null);
     }
-private void Reset()
-{
-    txtID.setText("");
-    txtName.setText("");
-    cmbCategory.setSelectedIndex(-1);
-    txtContactNo.setText("");
-    txtAddress.setText("");
-    txtQualifications.setText("");
-    txtEmailID.setText("");
-    txtDateOfJoining.setText("");
-    cmbBloodGroup.setSelectedIndex(-1);
-    btnSave.setEnabled(true);
-    btnUpdate.setEnabled(false);
-    btnDelete.setEnabled(false);
-    txtID.requestDefaultFocus();
-}
+
+    private void Reset() {
+        txtID.setText("");
+        txtName.setText("");
+        cmbCategory.setSelectedIndex(-1);
+        txtContactNo.setText("");
+        txtAddress.setText("");
+        txtQualifications.setText("");
+        txtEmailID.setText("");
+        txtDateOfJoining.setText("");
+        cmbBloodGroup.setSelectedIndex(-1);
+        btnSave.setEnabled(true);
+        btnUpdate.setEnabled(false);
+        btnDelete.setEnabled(false);
+        txtID.requestDefaultFocus();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -283,115 +284,113 @@ private void Reset()
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-  try{
-            con=Connect.ConnectDB();
+        try {
+            con = Connect.ConnectDB();
             if (txtID.getText().equals("")) {
-                JOptionPane.showMessageDialog( this, "Please enter nurse/wardboy id","Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please enter nurse/wardboy id", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
 
             }
             if (txtName.getText().equals("")) {
-                JOptionPane.showMessageDialog( this, "Please enter name","Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please enter name", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
 
             }
             if (cmbCategory.getSelectedItem().equals("")) {
-                JOptionPane.showMessageDialog( this, "Please select category","Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please select category", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             if (txtAddress.getText().equals("")) {
-                JOptionPane.showMessageDialog( this, "Please enter address","Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please enter address", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-           if (txtContactNo.getText().equals("")) {
-                JOptionPane.showMessageDialog( this, "Please enter contact no.","Error", JOptionPane.ERROR_MESSAGE);
+            if (txtContactNo.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Please enter contact no.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-         
+
             if (txtQualifications.getText().equals("")) {
-                JOptionPane.showMessageDialog( this, "Please enter qualifications","Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please enter qualifications", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-          
+
             if (cmbBloodGroup.getSelectedItem().equals("")) {
-                JOptionPane.showMessageDialog( this, "Please select blood group","Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please select blood group", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-           
+
             if (txtDateOfJoining.getText().equals("")) {
-                JOptionPane.showMessageDialog( this, "Please enter joining date","Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please enter joining date", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-   Statement stmt;
-       stmt= con.createStatement();
-       String sql1="Select ID from Wardboy_Nurse_tbl where ID= '" + txtID.getText() + "'";
-      rs=stmt.executeQuery(sql1);
-      if(rs.next()){
-        JOptionPane.showMessageDialog( this, "Nurse/wardboy ID already exists","Error", JOptionPane.ERROR_MESSAGE);
-        txtID.setText("");
-        txtID.requestDefaultFocus();
-        return;
-      }
-            String sql= "insert into Wardboy_Nurse_tbl(ID,W_N_name,Category,Email,ContactNo,Qualifications,BloodGroup,DateOfJoining,Address)values('"+ txtID.getText() + "','"+ txtName.getText() + "','"+ cmbCategory.getSelectedItem()+ "','"+ txtEmailID.getText() + "','"+ txtContactNo.getText() + "','"+ txtQualifications.getText() + "','"+ cmbBloodGroup.getSelectedItem() + "','" + txtDateOfJoining.getText() + "','" + txtAddress.getText() + "')";
-            pst=con.prepareStatement(sql);
+            Statement stmt;
+            stmt = con.createStatement();
+            String sql1 = "Select ID from Wardboy_Nurse_tbl where ID= '" + txtID.getText() + "'";
+            rs = stmt.executeQuery(sql1);
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(this, "Nurse/wardboy ID already exists", "Error", JOptionPane.ERROR_MESSAGE);
+                txtID.setText("");
+                txtID.requestDefaultFocus();
+                return;
+            }
+            String sql = "insert into Wardboy_Nurse_tbl(ID,W_N_name,Category,Email,ContactNo,Qualifications,BloodGroup,DateOfJoining,Address)values('" + txtID.getText() + "','" + txtName.getText() + "','" + cmbCategory.getSelectedItem() + "','" + txtEmailID.getText() + "','" + txtContactNo.getText() + "','" + txtQualifications.getText() + "','" + cmbBloodGroup.getSelectedItem() + "','" + txtDateOfJoining.getText() + "','" + txtAddress.getText() + "')";
+            pst = con.prepareStatement(sql);
             pst.execute();
-            JOptionPane.showMessageDialog(this,"Successfully saved","Record",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Successfully saved", "Record", JOptionPane.INFORMATION_MESSAGE);
             btnSave.setEnabled(false);
 
-        }catch(HeadlessException | SQLException ex){
-            JOptionPane.showMessageDialog(this,ex);
+        } catch (HeadlessException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex);
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
-    Reset();
+        Reset();
     }//GEN-LAST:event_btnNewActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-   try
-        {
-            int P = JOptionPane.showConfirmDialog(null," Are you sure want to delete ?","Confirmation",JOptionPane.YES_NO_OPTION);
-            if (P==0)
-            {
-                con=Connect.ConnectDB();
-                String sql= "delete from Wardboy_Nurse_tbl where ID = '" + txtID.getText() + "'";
-                pst=con.prepareStatement(sql);
+        try {
+            int P = JOptionPane.showConfirmDialog(null, " Are you sure want to delete ?", "Confirmation", JOptionPane.YES_NO_OPTION);
+            if (P == 0) {
+                con = Connect.ConnectDB();
+                String sql = "delete from Wardboy_Nurse_tbl where ID = '" + txtID.getText() + "'";
+                pst = con.prepareStatement(sql);
                 pst.execute();
-                JOptionPane.showMessageDialog(this,"Successfully deleted","Record",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Successfully deleted", "Record", JOptionPane.INFORMATION_MESSAGE);
                 Reset();
             }
-        }catch(HeadlessException | SQLException ex){
-            JOptionPane.showMessageDialog(this,ex);
+        } catch (HeadlessException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex);
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-  try{
-            con=Connect.ConnectDB();
-            String sql= "update Wardboy_Nurse_tbl set W_N_name='"+ txtName.getText() + "',Category='"+ cmbCategory.getSelectedItem()+ "',Email='"+ txtEmailID.getText() + "',ContactNo='"+ txtContactNo.getText() + "',Qualifications='"+ txtQualifications.getText() + "',BloodGroup='"+ cmbBloodGroup.getSelectedItem() + "',DateOfJoining='" + txtDateOfJoining.getText() + "',Address='" + txtAddress.getText() + "' where ID='" + txtID.getText() + "'";
+        try {
+            con = Connect.ConnectDB();
+            String sql = "update Wardboy_Nurse_tbl set W_N_name='" + txtName.getText() + "',Category='" + cmbCategory.getSelectedItem() + "',Email='" + txtEmailID.getText() + "',ContactNo='" + txtContactNo.getText() + "',Qualifications='" + txtQualifications.getText() + "',BloodGroup='" + cmbBloodGroup.getSelectedItem() + "',DateOfJoining='" + txtDateOfJoining.getText() + "',Address='" + txtAddress.getText() + "' where ID='" + txtID.getText() + "'";
 
-            pst=con.prepareStatement(sql);
+            pst = con.prepareStatement(sql);
             pst.execute();
-            JOptionPane.showMessageDialog(this,"Successfully updated","Record",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Successfully updated", "Record", JOptionPane.INFORMATION_MESSAGE);
             btnUpdate.setEnabled(false);
 
-        }catch(HeadlessException | SQLException ex){
-            JOptionPane.showMessageDialog(this,ex);
-        }    
+        } catch (HeadlessException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnGetDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetDataActionPerformed
-  this.hide();
-  Nurse_WardBoyRecord frm= new Nurse_WardBoyRecord();
-  frm.setVisible(true);
+        this.hide();
+        Nurse_WardBoyRecord frm = new Nurse_WardBoyRecord();
+        frm.setVisible(true);
     }//GEN-LAST:event_btnGetDataActionPerformed
 
     private void txtContactNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactNoKeyTyped
-   char c=evt.getKeyChar();
-      if (!(Character.isDigit(c)|| (c== KeyEvent.VK_BACK_SPACE)||(c==KeyEvent.VK_DELETE))){
-          getToolkit().beep();
-          evt.consume();
-    }          
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
+            getToolkit().beep();
+            evt.consume();
+        }
     }//GEN-LAST:event_txtContactNoKeyTyped
 
     /**
