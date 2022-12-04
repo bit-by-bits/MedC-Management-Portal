@@ -2,6 +2,7 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -26,7 +27,8 @@ PreparedStatement pst=null;
                 initComponents();
         con= Connect.ConnectDB();
         Get_Data();
-        setLocationRelativeTo(null);
+                setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
     
              private void Get_Data(){

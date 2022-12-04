@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /*
@@ -35,6 +36,9 @@ public class Medicines extends javax.swing.JFrame {
     // Creates new form Medicines
     public Medicines() {
         initComponents();
+        setLocationRelativeTo(null);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
 
     /**

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /*
@@ -34,6 +35,8 @@ public class Appointment extends javax.swing.JFrame {
     // Creates new form Appointment
     public Appointment() {
         initComponents();
+                        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
 
     /**
@@ -271,7 +274,7 @@ public class Appointment extends javax.swing.JFrame {
             Statement stmt;
             stmt = con.createStatement();
 
-            String sql1 = "Select username from Registration where Username= '" + id_text.getText() + "'";
+            String sql1 = "Select time from appointments where time= '" + time_text.getText() + "'";
             rs = stmt.executeQuery(sql1);
 
             if (rs.next()) {

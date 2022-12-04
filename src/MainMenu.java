@@ -27,21 +27,9 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         noticeBoard = new javax.swing.JButton();
         bookAppointment = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        main_menu = new javax.swing.JMenu();
-        profile_menu = new javax.swing.JMenuItem();
-        logout_menu = new javax.swing.JMenuItem();
-        options_menu = new javax.swing.JMenu();
-        cpass_menu = new javax.swing.JMenuItem();
-        meds_menu = new javax.swing.JMenu();
-        unpaid_menu = new javax.swing.JMenuItem();
-        billed_menu = new javax.swing.JMenuItem();
-        appt_menu = new javax.swing.JMenu();
-        planned_menu = new javax.swing.JMenuItem();
-        history_menu = new javax.swing.JMenuItem();
-        help_menu = new javax.swing.JMenu();
-        about_menu = new javax.swing.JMenuItem();
-        contact_menu = new javax.swing.JMenuItem();
+        buyMedicines = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        logOut = new javax.swing.JButton();
 
         jMenu6.setText("jMenu6");
 
@@ -61,6 +49,11 @@ public class MainMenu extends javax.swing.JFrame {
         setResizable(false);
 
         noticeBoard.setText("Notice Board");
+        noticeBoard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noticeBoardActionPerformed(evt);
+            }
+        });
 
         bookAppointment.setText("Book Appointment");
         bookAppointment.addActionListener(new java.awt.event.ActionListener() {
@@ -69,186 +62,88 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        main_menu.setText("Main Menu");
-
-        profile_menu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        profile_menu.setText("Profile");
-        profile_menu.addActionListener(new java.awt.event.ActionListener() {
+        buyMedicines.setText("Buy Medicines");
+        buyMedicines.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profile_menuActionPerformed(evt);
-            }
-        });
-        main_menu.add(profile_menu);
-
-        logout_menu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        logout_menu.setText("Logout");
-        logout_menu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logout_menuActionPerformed(evt);
-            }
-        });
-        main_menu.add(logout_menu);
-
-        jMenuBar1.add(main_menu);
-
-        options_menu.setText("Options");
-
-        cpass_menu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        cpass_menu.setText("Change Password");
-        cpass_menu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cpass_menuActionPerformed(evt);
-            }
-        });
-        options_menu.add(cpass_menu);
-
-        jMenuBar1.add(options_menu);
-
-        meds_menu.setText("Medicines");
-
-        unpaid_menu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        unpaid_menu.setText("Unpaid");
-        unpaid_menu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                unpaid_menuActionPerformed(evt);
-            }
-        });
-        meds_menu.add(unpaid_menu);
-
-        billed_menu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        billed_menu.setText("Billed");
-        billed_menu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                billed_menuActionPerformed(evt);
-            }
-        });
-        meds_menu.add(billed_menu);
-
-        jMenuBar1.add(meds_menu);
-
-        appt_menu.setText("Appointments");
-
-        planned_menu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        planned_menu.setText("Planned");
-        planned_menu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                planned_menuActionPerformed(evt);
-            }
-        });
-        appt_menu.add(planned_menu);
-
-        history_menu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        history_menu.setText("History");
-        history_menu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                history_menuActionPerformed(evt);
-            }
-        });
-        appt_menu.add(history_menu);
-
-        jMenuBar1.add(appt_menu);
-
-        help_menu.setText("Help");
-        help_menu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                help_menuActionPerformed(evt);
+                buyMedicinesActionPerformed(evt);
             }
         });
 
-        about_menu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        about_menu.setText("About");
-        about_menu.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setText("MED-C Student Portal");
+
+        logOut.setText("LogOut");
+        logOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                about_menuActionPerformed(evt);
+                logOutActionPerformed(evt);
             }
         });
-        help_menu.add(about_menu);
-
-        contact_menu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        contact_menu.setText("Contact");
-        contact_menu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contact_menuActionPerformed(evt);
-            }
-        });
-        help_menu.add(contact_menu);
-
-        jMenuBar1.add(help_menu);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(bookAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(noticeBoard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(noticeBoard, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(bookAppointment)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buyMedicines, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(79, 79, 79))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(logOut)
+                .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel2)
-                .addGap(29, 29, 29)
-                .addComponent(bookAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(noticeBoard, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(noticeBoard, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buyMedicines, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bookAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                .addComponent(logOut)
+                .addGap(16, 16, 16))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cpass_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpass_menuActionPerformed
-        ChangePassword frm = new ChangePassword();
-        frm.setVisible(true);
-    }//GEN-LAST:event_cpass_menuActionPerformed
-
-    private void history_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_history_menuActionPerformed
-    // ok
-    }//GEN-LAST:event_history_menuActionPerformed
-
-    private void profile_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profile_menuActionPerformed
-    // ok
-    }//GEN-LAST:event_profile_menuActionPerformed
-
-    private void help_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_help_menuActionPerformed
-    // ok
-    }//GEN-LAST:event_help_menuActionPerformed
-
-    private void about_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_about_menuActionPerformed
-    // ok
-    }//GEN-LAST:event_about_menuActionPerformed
-
-    private void billed_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billed_menuActionPerformed
-    // ok
-    }//GEN-LAST:event_billed_menuActionPerformed
-
-    private void contact_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contact_menuActionPerformed
-    // ok
-    }//GEN-LAST:event_contact_menuActionPerformed
 
     private void bookAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookAppointmentActionPerformed
         Appointment frame = new Appointment();
         frame.setVisible(true);
     }//GEN-LAST:event_bookAppointmentActionPerformed
 
-    private void unpaid_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unpaid_menuActionPerformed
-    // ok
-    }//GEN-LAST:event_unpaid_menuActionPerformed
-
-    private void planned_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_planned_menuActionPerformed
-    // ok
-    }//GEN-LAST:event_planned_menuActionPerformed
-
-    private void logout_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout_menuActionPerformed
-    // ok
+    private void buyMedicinesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyMedicinesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_logout_menuActionPerformed
+        Medicines frm = new Medicines();
+        frm.setVisible(true);
+    }//GEN-LAST:event_buyMedicinesActionPerformed
+
+    private void noticeBoardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noticeBoardActionPerformed
+        // TODO add your handling code here:
+        ViewNotices frm = new ViewNotices();
+        frm.setVisible(true);
+    }//GEN-LAST:event_noticeBoardActionPerformed
+
+    private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
+        // TODO add your handling code here:
+                Login frame = new Login();
+        frame.setVisible(true);
+        super.dispose();
+    }//GEN-LAST:event_logOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,29 +180,17 @@ public class MainMenu extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem about_menu;
-    private javax.swing.JMenu appt_menu;
-    private javax.swing.JMenuItem billed_menu;
     private javax.swing.JButton bookAppointment;
-    private javax.swing.JMenuItem contact_menu;
-    private javax.swing.JMenuItem cpass_menu;
-    private javax.swing.JMenu help_menu;
-    private javax.swing.JMenuItem history_menu;
+    private javax.swing.JButton buyMedicines;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu12;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem logout_menu;
-    private javax.swing.JMenu main_menu;
-    private javax.swing.JMenu meds_menu;
+    private javax.swing.JButton logOut;
     private javax.swing.JButton noticeBoard;
-    private javax.swing.JMenu options_menu;
-    private javax.swing.JMenuItem planned_menu;
-    private javax.swing.JMenuItem profile_menu;
-    private javax.swing.JMenuItem unpaid_menu;
     // End of variables declaration//GEN-END:variables
 }

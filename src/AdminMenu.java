@@ -108,6 +108,8 @@ public class AdminMenu extends javax.swing.JFrame {
 
     private void SalesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalesBtnActionPerformed
         // TODO add your handling code here:
+        SalesSummary frm = new SalesSummary();
+        frm.setVisible(true);
 
     }//GEN-LAST:event_SalesBtnActionPerformed
 
