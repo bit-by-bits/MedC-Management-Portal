@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /*
@@ -237,24 +239,33 @@ public class Appointment extends javax.swing.JFrame {
         try {
             con = Connect.ConnectDB();
 
+            Pattern contact_pattern = Pattern.compile("[0-9]{10,10}");
+            Matcher contact_matcher = contact_pattern.matcher(contact_text.getText());
+
+            Pattern time_pattern = Pattern.compile("[0-9][0-9]:[0-9][0-9]");
+            Matcher time_matcher = time_pattern.matcher(contact_text.getText());
+
             if (name_text.getText().equals("")) {
-                JOptionPane.showMessageDialog(this, "Please enter your name", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please enter your name.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            if (id_text.getText().equals("")) {
-                JOptionPane.showMessageDialog(this, "Please enter your BITS ID", "Error", JOptionPane.ERROR_MESSAGE);
+
+            if (id_text.getText().equals("") && id_text.getText().length() != 13) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid BITS ID.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            if (contact_text.getText().equals("")) {
-                JOptionPane.showMessageDialog(this, "Please enter a contact number", "Error", JOptionPane.ERROR_MESSAGE);
+
+            if (contact_text.getText().equals("") || contact_matcher.find()) {
+                JOptionPane.showMessageDialog(this, "Please enter a 10-digit mobile number.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             if (doctor_list.getSelectedValue().equals("")) {
-                JOptionPane.showMessageDialog(this, "Please enter doctor's name", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please choose a doctor from the list.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            if (time_text.getText().equals("")) {
-                JOptionPane.showMessageDialog(this, "Please enter contact no.", "Error", JOptionPane.ERROR_MESSAGE);
+
+            if (time_text.getText().equals("") || time_matcher.find()) {
+                JOptionPane.showMessageDialog(this, "Please enter your appointment time in XX:XX format.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
