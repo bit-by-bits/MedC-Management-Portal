@@ -113,10 +113,14 @@ public class AdminMenu extends javax.swing.JFrame {
 
     private void AppointmentsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppointmentsBtnActionPerformed
         // TODO add your handling code here:
+        ViewAppointmentsAdmin frm = new ViewAppointmentsAdmin();
+        frm.setVisible(true);
     }//GEN-LAST:event_AppointmentsBtnActionPerformed
 
     private void ManageStudentsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageStudentsBtnActionPerformed
         // TODO add your handling code here:
+        StudentRecords frm = new StudentRecords();
+        frm.setVisible(true);
     }//GEN-LAST:event_ManageStudentsBtnActionPerformed
 
     /**

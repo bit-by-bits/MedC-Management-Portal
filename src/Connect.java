@@ -10,7 +10,7 @@ public class Connect {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hms_db", "root", "prateek.pk12");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hms_db", "root", "Tipsy9450");
 //          JOptionPane.showMessageDialog(null, "Connected to database");
             return con;
 
