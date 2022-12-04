@@ -199,7 +199,7 @@ public class Appointment extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        note.setText("Note: Add your time in a 24hr format. Thus '5pm' should be written as '17:00' instead.");
+        note.setText("Note: Add your time in a 24hr format. Thus '5pm' should be written as '1700' instead.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

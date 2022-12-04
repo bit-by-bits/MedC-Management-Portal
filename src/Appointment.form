@@ -264,7 +264,7 @@
     </Container>
     <Component class="javax.swing.JLabel" name="note">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Note: Add your time in a 24hr format. Thus &apos;5pm&apos; should be written as &apos;17:00&apos; instead."/>
+        <Property name="text" type="java.lang.String" value="Note: Add your time in a 24hr format. Thus &apos;5pm&apos; should be written as &apos;1700&apos; instead."/>
       </Properties>
     </Component>
   </SubComponents>

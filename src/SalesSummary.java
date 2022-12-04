@@ -105,7 +105,7 @@ public class SalesSummary extends javax.swing.JFrame {
         jLabel12.setText("Ondansetron -Rs 100");
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel13.setText("Total - Rs 500");
+        jLabel13.setText("Total - Rs 700");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
