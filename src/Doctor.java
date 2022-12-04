@@ -419,9 +419,6 @@ private void Reset() {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.hide();
-        DoctorRecord frm = new DoctorRecord();
-        frm.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtContactNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactNoKeyTyped
