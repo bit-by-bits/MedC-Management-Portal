@@ -304,23 +304,15 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        Room frm = new Room();
-        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        Doctor frm = new Doctor();
-        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        Ward frm = new Ward();
-        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
-        PatientAdmit_Ward frm = new PatientAdmit_Ward();
-        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem14ActionPerformed
 
     private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
@@ -328,57 +320,36 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu5ActionPerformed
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
-        About frm = new About();
-        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        Nurse_Wardboy frm = new Nurse_Wardboy();
-        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        PatientRegistration frm = new PatientRegistration();
-        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        PatientAdmit_Room frm = new PatientAdmit_Room();
-        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
-        PatientDischarge_Room frm = new PatientDischarge_Room();
-        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem17ActionPerformed
 
     private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem18ActionPerformed
-        PatientDischarge_Ward frm = new PatientDischarge_Ward();
-        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem18ActionPerformed
 
     private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
-        Services frm = new Services();
-        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem19ActionPerformed
 
     private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
-        Bill_Room frm = new Bill_Room();
-        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem20ActionPerformed
 
     private void jMenuItem21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem21ActionPerformed
-        Bill_Ward frm = new Bill_Ward();
-        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem21ActionPerformed
 
     private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
-        Contact frm = new Contact();
-        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
     private void bookAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookAppointmentActionPerformed
-        // TODO add your handling code here:
         Appointment frame = new Appointment();
         frame.setVisible(true);
     }//GEN-LAST:event_bookAppointmentActionPerformed
