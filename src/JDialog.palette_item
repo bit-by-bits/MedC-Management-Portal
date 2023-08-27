@@ -4,7 +4,5 @@
   <component classname="javax.swing.JDialog" type="visual" />
   <icon16 urlvalue="nbres:/org/netbeans/modules/form/resources/palette/dialog_16.png" />
   <icon32 urlvalue="nbres:/org/netbeans/modules/form/resources/palette/dialog_32.png" />
-  <description localizing-bundle="org.netbeans.modules.form.resources.Bundle"
-               display-name-key="NAME_javax-swing-JDialog"
-               tooltip-key="HINT_javax-swing-JDialog" />
+  <description localizing-bundle="org.netbeans.modules.form.resources.Bundle" display-name-key="NAME_javax-swing-JDialog" tooltip-key="HINT_javax-swing-JDialog" />
 </palette_item>

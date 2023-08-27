@@ -30,36 +30,36 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="note" pref="486" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+        <Group type="102" alignment="1" attributes="0">
+          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+          <Group type="103" groupAlignment="0" attributes="0">
+            <Group type="102" attributes="0">
+              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+            </Group>
+            <Component id="note" pref="486" max="32767" attributes="0"/>
           </Group>
+          <EmptySpace min="-2" max="-2" attributes="0"/>
+        </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace pref="23" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel2" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="note" min="-2" pref="19" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+        <Group type="102" attributes="0">
+          <EmptySpace pref="23" max="32767" attributes="0"/>
+          <Group type="103" groupAlignment="0" attributes="0">
+            <Component id="jPanel2" alignment="1" min="-2" max="-2" attributes="0"/>
+            <Group type="102" alignment="1" attributes="0">
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+            </Group>
           </Group>
+          <EmptySpace type="separate" max="-2" attributes="0"/>
+          <Component id="note" min="-2" pref="19" max="-2" attributes="0"/>
+          <EmptySpace max="-2" attributes="0"/>
+        </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -76,25 +76,25 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="clear" alignment="0" pref="85" max="32767" attributes="0"/>
-                      <Component id="book" alignment="0" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+            <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                <Component id="clear" alignment="0" pref="85" max="32767" attributes="0"/>
+                <Component id="book" alignment="0" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+            </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="clear" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="book" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-              </Group>
+            <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="clear" max="32767" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="book" max="32767" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+            </Group>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -132,60 +132,60 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="name" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="bitsID" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="contact" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="doctor" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="time" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="contact_text" max="32767" attributes="0"/>
-                      <Component id="name_text" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jScrollPane1" alignment="0" pref="212" max="32767" attributes="0"/>
-                      <Component id="id_text" alignment="0" max="32767" attributes="0"/>
-                      <Component id="time_text" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+            <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                <Component id="name" alignment="0" min="-2" max="-2" attributes="0"/>
+                <Component id="bitsID" alignment="0" min="-2" max="-2" attributes="0"/>
+                <Component id="contact" alignment="0" min="-2" max="-2" attributes="0"/>
+                <Component id="doctor" alignment="0" min="-2" max="-2" attributes="0"/>
+                <Component id="time" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                <Component id="contact_text" max="32767" attributes="0"/>
+                <Component id="name_text" alignment="0" max="32767" attributes="0"/>
+                <Component id="jScrollPane1" alignment="0" pref="212" max="32767" attributes="0"/>
+                <Component id="id_text" alignment="0" max="32767" attributes="0"/>
+                <Component id="time_text" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+            </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="name" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="name_text" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="id_text" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="bitsID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="contact" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="contact_text" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="doctor" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="26" max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="time_text" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="time" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+            <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                <Component id="name" alignment="3" min="-2" max="-2" attributes="0"/>
+                <Component id="name_text" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                <Component id="id_text" alignment="3" min="-2" max="-2" attributes="0"/>
+                <Component id="bitsID" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                <Component id="contact" alignment="3" min="-2" max="-2" attributes="0"/>
+                <Component id="contact_text" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                <Group type="102" attributes="0">
+                  <Component id="doctor" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="26" max="32767" attributes="0"/>
+                </Group>
+                <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                <Component id="time_text" alignment="3" min="-2" max="-2" attributes="0"/>
+                <Component id="time" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+            </Group>
           </Group>
         </DimensionLayout>
       </Layout>
