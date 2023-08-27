@@ -351,7 +351,7 @@ public class Doctor extends javax.swing.JFrame {
         btnSave.setEnabled(true);
         btnUpdate.setEnabled(false);
         btnDelete.setEnabled(false);
-        txtDoctorID.requestDefaultFocus();
+        txtDoctorID.requestFocus();
 
     }
 
@@ -413,7 +413,7 @@ public class Doctor extends javax.swing.JFrame {
             if (rs.next()) {
                 JOptionPane.showMessageDialog(this, "Doctor ID already exists", "Error", JOptionPane.ERROR_MESSAGE);
                 txtDoctorID.setText("");
-                txtDoctorID.requestDefaultFocus();
+                txtDoctorID.requestFocus();
                 return;
             }
             String sql = "insert into Doctor(DoctorID,Doctorname,FatherName,Email,ContactNo,Qualifications,Specialization,Gender,BloodGroup,DateOfJoining,Address)values('"

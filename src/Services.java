@@ -47,7 +47,7 @@ public class Services extends javax.swing.JFrame {
         btnSave.setEnabled(true);
         btnUpdate.setEnabled(false);
         btnDelete.setEnabled(false);
-        txtServiceCharges.requestDefaultFocus();
+        txtServiceCharges.requestFocus();
     }
 
     /**

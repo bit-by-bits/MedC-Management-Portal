@@ -10,8 +10,8 @@ public class Connect {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hms_db", "root", "Tipsy9450");
-            JOptionPane.showMessageDialog(null, "Connected to database");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hms_db", "root", "password");
+            // JOptionPane.showMessageDialog(null, "Connected to database");
             return con;
 
         } catch (ClassNotFoundException | SQLException e) {

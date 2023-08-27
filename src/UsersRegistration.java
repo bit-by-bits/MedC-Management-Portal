@@ -31,7 +31,7 @@ public class UsersRegistration extends javax.swing.JFrame {
         Save.setEnabled(true);
         Delete.setEnabled(false);
         Update.setEnabled(false);
-        txtEmail.requestDefaultFocus();
+        txtEmail.requestFocus();
 
     }
 
@@ -73,6 +73,7 @@ public class UsersRegistration extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NewActionPerformed(evt);
             }
+
         });
 
         Save.setText("Save");
@@ -80,6 +81,7 @@ public class UsersRegistration extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SaveActionPerformed(evt);
             }
+
         });
 
         Delete.setText("Delete");
@@ -88,6 +90,7 @@ public class UsersRegistration extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeleteActionPerformed(evt);
             }
+
         });
 
         Update.setText("Update");
@@ -96,6 +99,7 @@ public class UsersRegistration extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UpdateActionPerformed(evt);
             }
+
         });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -140,6 +144,7 @@ public class UsersRegistration extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
             }
+
         });
 
         jLabel3.setText("Password");
@@ -152,6 +157,7 @@ public class UsersRegistration extends javax.swing.JFrame {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtContactNoKeyTyped(evt);
             }
+
         });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -255,7 +261,8 @@ public class UsersRegistration extends javax.swing.JFrame {
                                 .addContainerGap(32, Short.MAX_VALUE)));
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
+    // </editor-fold>//GEN-END:initComponents
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_SaveActionPerformed
         try {
@@ -264,11 +271,25 @@ public class UsersRegistration extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Please enter name", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            String[] emailSplit = txtEmail.getText().split("@");
+
+            String email = txtEmail.getText();
+
+            if (email.isEmpty() || !email.contains("@")) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid email address.", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            String[] emailSplit = email.split("@");
             String text2 = emailSplit[1];
-            System.out.println(text2);
             if (txtEmail.getText().equals("") || !text2.equals("pilani.bits-pilani.ac.in")) {
                 JOptionPane.showMessageDialog(this, "Please enter valid BITS Mail", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            if (txtBitsId.getText().equals("") || txtBitsId.getText().length() != 13) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid BITS ID.", "Error",
+                        JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
@@ -277,6 +298,7 @@ public class UsersRegistration extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Please enter password", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
+
             if (txtContactNo.getText().equals("")) {
                 JOptionPane.showMessageDialog(this, "Please enter contact no.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
@@ -289,27 +311,33 @@ public class UsersRegistration extends javax.swing.JFrame {
             if (rs.next()) {
                 JOptionPane.showMessageDialog(this, "User name already exists", "Error", JOptionPane.ERROR_MESSAGE);
                 txtEmail.setText("");
-                txtEmail.requestDefaultFocus();
+                txtEmail.requestFocus();
                 return;
             }
+
             String Password1 = String.valueOf(txtPassword.getPassword());
+
             String sql = "insert into Registration(userName,bitsMail,password,bitsId,contactNo)values('"
                     + txtName.getText() + "','" + txtEmail.getText() + "','" + Password1 + "','" + txtBitsId.getText()
                     + "','" + txtContactNo.getText() + "')";
 
             pst = con.prepareStatement(sql);
             pst.execute();
-            String sql2 = "insert into Users(username,user_password)values('" + txtEmail.getText() + "','" + Password1
+
+            String sql2 = "insert into Users(username,user_password)values('" + txtName.getText() + "','" + Password1
                     + "')";
 
             pst = con.prepareStatement(sql2);
             pst.execute();
+
             JOptionPane.showMessageDialog(this, "Successfully Registered", "User", JOptionPane.INFORMATION_MESSAGE);
             Save.setEnabled(false);
         } catch (HeadlessException | SQLException ex) {
             JOptionPane.showMessageDialog(this, ex);
         }
-    }// GEN-LAST:event_SaveActionPerformed
+
+    }
+    // GEN-LAST:event_SaveActionPerformed
 
     private void txtContactNoKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_txtContactNoKeyTyped
         char c = evt.getKeyChar();
@@ -317,11 +345,14 @@ public class UsersRegistration extends javax.swing.JFrame {
             getToolkit().beep();
             evt.consume();
         }
-    }// GEN-LAST:event_txtContactNoKeyTyped
+
+    }
+    // GEN-LAST:event_txtContactNoKeyTyped
 
     private void NewActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_NewActionPerformed
         Reset();
-    }// GEN-LAST:event_NewActionPerformed
+    }
+    // GEN-LAST:event_NewActionPerformed
 
     private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_UpdateActionPerformed
         try {
@@ -343,7 +374,9 @@ public class UsersRegistration extends javax.swing.JFrame {
         } catch (HeadlessException | SQLException ex) {
             JOptionPane.showMessageDialog(this, ex);
         }
-    }// GEN-LAST:event_UpdateActionPerformed
+
+    }
+    // GEN-LAST:event_UpdateActionPerformed
 
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_DeleteActionPerformed
         try {
@@ -361,14 +394,18 @@ public class UsersRegistration extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Successfully deleted", "Record", JOptionPane.INFORMATION_MESSAGE);
                 Reset();
             }
+
         } catch (HeadlessException | SQLException ex) {
             JOptionPane.showMessageDialog(this, ex);
         }
-    }// GEN-LAST:event_DeleteActionPerformed
+
+    }
+    // GEN-LAST:event_DeleteActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
-    }// GEN-LAST:event_txtEmailActionPerformed
+    }
+    // GEN-LAST:event_txtEmailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -389,7 +426,9 @@ public class UsersRegistration extends javax.swing.JFrame {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
+
             }
+
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(UsersRegistration.class.getName()).log(java.util.logging.Level.SEVERE,
                     null, ex);
@@ -403,6 +442,7 @@ public class UsersRegistration extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(UsersRegistration.class.getName()).log(java.util.logging.Level.SEVERE,
                     null, ex);
         }
+
         // </editor-fold>
 
         /* Create and display the form */
@@ -411,6 +451,7 @@ public class UsersRegistration extends javax.swing.JFrame {
             public void run() {
                 new UsersRegistration().setVisible(true);
             }
+
         });
     }
 
